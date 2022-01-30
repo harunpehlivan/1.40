@@ -3,16 +3,12 @@ know = ''
 while True:
   userinput = input("Input: ")
   words = userinput.split()
-  if "?" in words[-1]:
-    question = True
-  else:
-    question = False
-  if question == True:
+  if question := "?" in words[-1]:
     know = False
-    for i in range(len(data)):
-      if words[-1][0: -1] == data[i].split()[0]:
+    for datum in data:
+      if words[-1][:-1] == datum.split()[0]:
         know = True
-        print(data[i])
+        print(datum)
         break
   else:
     print("Learning")
